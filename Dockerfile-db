@@ -1,0 +1,6 @@
+FROM mongo
+
+COPY ./myFonciaBdd /myFonciaBdd
+
+WORKDIR /
+EXPOSE 27017

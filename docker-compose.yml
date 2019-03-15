@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  test:
+    build:
+      context: .
+    environment:
+      - DATABASE_URL=mongodb://database:27017/myFonciaBdd
+    command: npm test
+
+  dev:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=mongodb://database:27017/myFonciaBdd
+    command: npm start
+
+  database:
+      build:
+        context: .
+        dockerfile: Dockerfile-db
+      image: myfoncia_db:1.0.10
+      ports:
+        - "27017:27017"
+
+
+#  @docker exec -i myfoncia_db sh -c 'mongorestore -d myFonciaBdd ./myFonciaBdd'
