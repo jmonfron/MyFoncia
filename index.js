@@ -6,10 +6,7 @@ import middleware from './utils/middleware'
 const app = express()
 
 const dbUrl = process.env.DATABASE_URL
-// // const url = 'mongodb://localhost:27017/myFonciaBdd';
-// const url = `mongodb://database:27017/myFonciaBdd`;
 
-console.log(dbUrl)
 import routes from './routes'
 mongoose.connect(dbUrl)
 
